@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-red-400 to-blue-400 h-screen flex items-center ">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow-lg">
+        <h2 class="text-2xl font-bold mb-4 text-center">Encrypted File (AES)</h2>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-600 font-semibold">Name</label>
+                <input type="text" name="name" id="name" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-600 font-semibold">Email</label>
+                <input type="email" name="email" id="email" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-600 font-semibold">Phone Number</label>
+                <input type="tel" name="phone" id="phone" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for ID Card</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".png, .jpg, jpeg">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for PDF/DOC/XLS</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".pdf, .docx, .xls">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for Video</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".mp4, .mov">
+            </div>
+            <button type="submit" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white item-center font-bold py-2 px-4 rounded">Submit</button>
+        </form>
+    </div>
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow-lg">
+        <h2 class="text-2xl font-bold mb-4 text-center">Encrypted File (RC4)</h2>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-600 font-semibold">Name</label>
+                <input type="text" name="name" id="name" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-600 font-semibold">Email</label>
+                <input type="email" name="email" id="email" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-600 font-semibold">Phone Number</label>
+                <input type="tel" name="phone" id="phone" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for ID Card</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".png, .jpg, jpeg">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for PDF/DOC/XLS</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".pdf, .docx, .xls">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for Video</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".mp4, .mov">
+            </div>
+            <button type="submit" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white item-center font-bold py-2 px-4 rounded">Submit</button>
+        </form>
+    </div>
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow-lg">
+        <h2 class="text-2xl font-bold mb-4 text-center">Encrypted File (DES)</h2>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-600 font-semibold">Name</label>
+                <input type="text" name="name" id="name" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-600 font-semibold">Email</label>
+                <input type="email" name="email" id="email" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-600 font-semibold">Phone Number</label>
+                <input type="tel" name="phone" id="phone" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for ID Card</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".png, .jpg, jpeg">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for PDF/DOC/XLS</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".pdf, .docx, .xls">
+            </div>
+            <div class="mb-4">
+                <label for="files" class="block text-gray-600 font-semibold">Upload Files for Video</label>
+                <input type="file" name="files[]" id="files" class="w-full p-2 border rounded" multiple accept=".mp4, .mov">
+            </div>
+            <button type="submit" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white item-center font-bold py-2 px-4 rounded">Submit</button>
+        </form>
+    </div>
+    <div class="flex">
+        <button class="shadow bg-purple-500 hover:bg-purple-400 mr-5 focus:shadow-outline focus:outline-none text-white item-center font-bold py-2 px-4 rounded">Back</button>
+    </div>
+</body>
+</html>
