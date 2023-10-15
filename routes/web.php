@@ -35,4 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/encrypt', function(){
+    return view('encrypt');
+});
+
 require __DIR__.'/auth.php';
