@@ -20,20 +20,9 @@ class Encrypt extends Model
         'name',
         'phonenum',
         'email',
-        'password',
         'image',
         'file',
         'video',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
     ];
 
     /**
@@ -43,6 +32,5 @@ class Encrypt extends Model
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
 }
