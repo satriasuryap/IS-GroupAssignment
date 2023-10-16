@@ -16,6 +16,8 @@ class Encrypt extends Model
      *
      * @var array<int, string>
      */
+
+     public $timestamps = false;
     protected $fillable = [
         'name',
         'phonenum',

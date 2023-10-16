@@ -19,4 +19,16 @@ class EncryptController extends Controller
             "encrypt" => Encrypt::find($id)
         ]);
     }
+
+    public function addData(Request $request){
+        $encrypt = new Encrypt;
+        $encrypt->name=$request->name;
+        $encrypt->email=$request->email;
+        $encrypt->phonenum=$request->phonenum;
+        $encrypt->image=$request->image;
+        $encrypt->file=$request->file;
+        $encrypt->video=$request->video;
+        $encrypt->save();
+
+    }
 }
