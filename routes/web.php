@@ -49,7 +49,22 @@ Route::get('/encrypt', function () {
     return view('encrypt');
 });
 
-Route::post('/encrypt', [EncryptionController::class, 'encrypt']);
-Route::post('/decrypt', [EncryptionController::class, 'decrypt']);
+Route::post('/encrypt/name', [EncryptionController::class, 'encryptName']);
+Route::post('/decrypt/name', [EncryptionController::class, 'decryptName']);
+
+Route::post('/encrypt/email', [EncryptionController::class, 'encryptEmail']);
+Route::post('/decrypt/email', [EncryptionController::class, 'decryptEmail']);
+
+Route::post('/encrypt/phone', [EncryptionController::class, 'encryptPhone']);
+Route::post('/decrypt/phone', [EncryptionController::class, 'decryptPhone']);
+
+Route::post('/encrypt/img', [EncryptionController::class, 'encryptImg']);
+Route::post('/decrypt/img', [EncryptionController::class, 'decryptImg']);
+
+Route::post('/encrypt/file', [EncryptionController::class, 'encryptFile']);
+Route::post('/decrypt/file', [EncryptionController::class, 'decryptFile']);
+
+Route::post('/encrypt/video', [EncryptionController::class, 'encryptVideo']);
+Route::post('/decrypt/video', [EncryptionController::class, 'decryptVideo']);
 
 require __DIR__.'/auth.php';
