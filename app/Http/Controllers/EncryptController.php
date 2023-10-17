@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Encrypt;
+use App\Models\upload;
 use Illuminate\Http\Request;
 
 class EncryptController extends Controller
