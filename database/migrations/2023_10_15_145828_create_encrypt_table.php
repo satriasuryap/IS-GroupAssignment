@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('phonenum');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('phonenum');
+            // $table->string('password');
             $table->binary('image');
             $table->binary('file');
             $table->binary('video');

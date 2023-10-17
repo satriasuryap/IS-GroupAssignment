@@ -17,11 +17,12 @@ class Encrypt extends Model
      * @var array<int, string>
      */
 
-     public $timestamps = false;
+    public $timestamps = false;
+    // protected $table = 'encrypt'; // Specify the table name if it's different from the model name
     protected $fillable = [
         'name',
-        'phonenum',
         'email',
+        'phonenum',
         'image',
         'file',
         'video',

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EncryptController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,9 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/upload', function(){
-    return view('upload');
-});
+// Route::get('/upload', function(){
+//     return view('upload');
+// });
+
+Route::get('/upload', [EncryptController::class, 'formTemplate']);
+Route::post('/upload', [EncryptController::class, 'upload']);
 
 Route::get('/encrypted', function(){
     return view('encrypted');
