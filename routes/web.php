@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\EncryptionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +44,12 @@ Route::get('/upload', function(){
 Route::get('/encrypted', function(){
     return view('encrypted');
 });
+
+Route::get('/encrypt', function () {
+    return view('encrypt');
+});
+
+Route::post('/encrypt', [EncryptionController::class, 'encrypt']);
+Route::post('/decrypt', [EncryptionController::class, 'decrypt']);
 
 require __DIR__.'/auth.php';
