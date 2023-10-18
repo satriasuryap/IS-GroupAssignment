@@ -74,5 +74,10 @@ Route::get('/encryptDES', function () {
 Route::post('/encryptDES/name', [EncryptionController::class, 'encryptNameDES']);
 Route::post('/decryptDES/name', [EncryptionController::class, 'decryptNameDES']);
 
+Route::post('/encryptDES/email', [EncryptionController::class, 'encryptEmailDES']);
+Route::post('/decryptDES/email', [EncryptionController::class, 'decryptEmailDES']);
+
+Route::post('/encryptDES/phone', [EncryptionController::class, 'encryptPhoneDES']);
+Route::post('/decryptDES/phone', [EncryptionController::class, 'decryptPhoneDES']);
 
 require __DIR__.'/auth.php';

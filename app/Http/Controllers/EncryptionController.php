@@ -132,5 +132,43 @@ class EncryptionController extends Controller
 
         return redirect('/encryptDES')->with('decryptednameDES', $decryptedNameDES);
     }
+    public function encryptEmailDES(Request $request)
+    {
+        $email = $request->input('email');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $encryptedEmailDES = DesEncrypter::encrypt($email, $key);
+        
+        return redirect('/encryptDES')->with('encryptedemailDES', $encryptedEmailDES);
+    }
+
+    public function decryptEmailDES(Request $request)
+    {
+        $encryptedEmailDES = $request->input('encrypted_emailDES');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $decryptedEmailDES = DesEncrypter::decrypt($encryptedEmailDES, $key);
+
+        return redirect('/encryptDES')->with('decryptedemailDES', $decryptedEmailDES);
+    }
+    public function encryptPhoneDES(Request $request)
+    {
+        $phone = $request->input('phone');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $encryptedPhoneDES = DesEncrypter::encrypt($phone, $key);
+        
+        return redirect('/encryptDES')->with('encryptedphoneDES', $encryptedPhoneDES);
+    }
+
+    public function decryptPhoneDES(Request $request)
+    {
+        $encryptedPhoneDES = $request->input('encrypted_phoneDES');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $decryptedPhoneDES = DesEncrypter::decrypt($encryptedPhoneDES, $key);
+
+        return redirect('/encryptDES')->with('decryptedphoneDES', $decryptedPhoneDES);
+    }
 
 }
