@@ -67,4 +67,12 @@ Route::post('/decrypt/file', [EncryptionController::class, 'decryptFile']);
 Route::post('/encrypt/video', [EncryptionController::class, 'encryptVideo']);
 Route::post('/decrypt/video', [EncryptionController::class, 'decryptVideo']);
 
+Route::get('/encryptDES', function () {
+    return view('encryptDES');
+});
+
+Route::post('/encryptDES/name', [EncryptionController::class, 'encryptNameDES']);
+Route::post('/decryptDES/name', [EncryptionController::class, 'decryptNameDES']);
+
+
 require __DIR__.'/auth.php';

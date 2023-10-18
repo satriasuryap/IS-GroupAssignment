@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Crypt; // AES
 use Illuminate\Support\Facades\Storage;
+use App\DesEncrypter;
 
 class EncryptionController extends Controller
 {
@@ -111,4 +112,25 @@ class EncryptionController extends Controller
     
         return redirect('/encrypt')->with('decryptedvideo', $fileName);
     }
+
+    public function encryptNameDES(Request $request)
+    {
+        $name = $request->input('name');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $encryptedNameDES = DesEncrypter::encrypt($name, $key);
+        
+        return redirect('/encryptDES')->with('encryptednameDES', $encryptedNameDES);
+    }
+
+    public function decryptNameDES(Request $request)
+    {
+        $encryptedNameDES = $request->input('encrypted_nameDES');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $decryptedNameDES = DesEncrypter::decrypt($encryptedNameDES, $key);
+
+        return redirect('/encryptDES')->with('decryptednameDES', $decryptedNameDES);
+    }
+
 }

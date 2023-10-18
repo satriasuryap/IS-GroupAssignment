@@ -11,11 +11,6 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
-
-                <div>
-                    <button type="submit" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white item-center font-bold py-2 px-4 rounded">Upload Form</button>
-                    <button type="submit" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white item-center font-bold py-2 px-4 rounded">Encryption Page</button>
-                </div>
             </div>
         </div>
     </div>
