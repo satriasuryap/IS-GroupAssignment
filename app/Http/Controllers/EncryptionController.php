@@ -171,4 +171,48 @@ class EncryptionController extends Controller
         return redirect('/encryptDES')->with('decryptedphoneDES', $decryptedPhoneDES);
     }
 
+    public function encryptImgDES(Request $request)
+    {
+        $img = $request->file('img');
+        $key = 'Halo1234'; // Replace with your actual key
+        // $imgData = file_get_contents($img);
+        // Encrypt the image data using DES encryption
+        $encryptedImgDES = DesEncrypter::encrypt($img, $key);
+        
+        return redirect('/encryptDES')->with('encryptedimgDES', $encryptedImgDES);
+    }
+
+    public function decryptImgDES(Request $request)
+    {
+        $encryptedImgDES = $request->input('encrypted_imgDES');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        // Decrypt the image data using DES decryption
+        $decryptedImgData = DesEncrypter::decrypt($encryptedImgDES, $key);
+
+        // Generate a unique file name for the decrypted image
+        $fileName = 'decrypted_' . time() . '.png'; // You can adjust the file format as needed
+    
+        // Store the decrypted image as a file
+        Storage::disk('public')->put($fileName, $decryptedImgData);
+    
+        return redirect('/encryptDES')->with('decryptedimgDES', $fileName);
+    }
+
+    public function encryptFileDES(Request $request)
+    {
+        $file = $request->input('file');
+        $key = 'Halo1234'; // Replace with your actual key
+        $encryptedFileDES = DesEncrypter::encrypt($file, $key);
+        return redirect('/encryptDES')->with('encryptedfileDES', $encryptedFileDES);
+    }
+
+    public function decryptFileDES(Request $request)
+    {
+        $encryptedFileDES = $request->input('encrypted_fileDES');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $decryptedFileDES = DesEncrypter::decrypt($encryptedFileDES, $key);
+        return redirect('/encryptDES')->with('decryptedfileDES', $decryptedFileDES);
+    }
 }

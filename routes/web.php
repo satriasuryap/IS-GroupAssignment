@@ -80,4 +80,10 @@ Route::post('/decryptDES/email', [EncryptionController::class, 'decryptEmailDES'
 Route::post('/encryptDES/phone', [EncryptionController::class, 'encryptPhoneDES']);
 Route::post('/decryptDES/phone', [EncryptionController::class, 'decryptPhoneDES']);
 
+Route::post('/encryptDES/img', [EncryptionController::class, 'encryptImgDES']);
+Route::post('/decryptDES/img', [EncryptionController::class, 'decryptImgDES']);
+
+Route::post('/encryptDES/file', [EncryptionController::class, 'encryptFileDES']);
+Route::post('/decryptDES/file', [EncryptionController::class, 'decryptFileDES']);
+
 require __DIR__.'/auth.php';

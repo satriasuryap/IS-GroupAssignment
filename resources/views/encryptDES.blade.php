@@ -26,8 +26,8 @@
             </div>
         @endif
 
-                <!-- Encrypt Email Form -->
-                @if (session('encryptedemailDES'))
+        <!-- Encrypt Email Form -->
+        @if (session('encryptedemailDES'))
             <div class="message-container bg-gray-100 border p-2 rounded my-2 text-ellipsis truncate">
                 <h3 class="font-semibold">Encrypted Message:</h3>
                 <p>{{ session('encryptedemailDES') }}</p>
@@ -57,6 +57,38 @@
                 <p>{{ session('decryptedphoneDES') }}</p>
             </div>
         @endif
+
+        <!-- Encrypt Image Form -->
+        @if (session('encryptedimgDES'))
+            <div class="message-container bg-gray-100 border p-2 rounded my-2 text-ellipsis truncate">
+                <h3 class="font-semibold">Encrypted Image:</h3>
+                <p>{{ session('encryptedimgDES') }}</p>
+            </div>
+        @endif
+
+        <!-- Decrypt Image Form -->
+        @if (session('decryptedimgDES'))
+            <div class="message-container bg-gray-100 border p-2 rounded my-2">
+                <h3 class="font-semibold">Decrypted Image:</h3>
+                <img src="{{ asset('storage/' . session('decryptedimgDES')) }}" alt="Decrypted Image">
+            </div>
+        @endif
+
+        {{-- File Encryption --}}
+       @if (session('encryptedfileDES'))
+           <div class="message-container bg-gray-100 border p-2 rounded my-2 text-ellipsis truncate">
+               <h3 class="font-semibold">Encrypted Message:</h3>
+               <p>{{ session('encryptedfileDES') }}</p>
+           </div>
+       @endif
+
+       {{-- File Decryption --}}
+       @if (session('decryptedfileDES'))
+           <div class="message-container bg-gray-100 border p-2 rounded my-2">
+               <h3 class="font-semibold">Decrypted Message:</h3>
+               <p>{{ session('decryptedfileDES') }}</p>
+           </div>
+       @endif
 
         <form action="/encryptDES/name" method="POST" class="my-4">
             @csrf
@@ -99,6 +131,37 @@
             <input type="text" id="encrypted_phoneDES" name="encrypted_phoneDES" class="w-full px-4 py-2 border rounded">
             <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Decrypt Phone</button>
         </form>
+
+        <form action="/encryptDES/img" method="POST" class="my-4">
+            @csrf
+            <label for="img" class="block mb-2">Image:</label>
+            <input type="file" id="img" name="img" class="w-full px-4 py-2 border rounded" multiple accept=".png, .jpg, jpeg">
+            <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Encrypt Image</button>
+        </form>
+
+        <form action="/decryptDES/img" method="POST" class="my-4">
+            @csrf
+            <label for="encrypted_imgDES" class="block mb-2">Enter Encrypted Image:</label>
+            <input type="text" id="encrypted_imgDES" name="encrypted_imgDES" class="w-full px-4 py-2 border rounded">
+            <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Decrypt Image</button>
+        </form>
+
+        <!-- File Encryption Form -->
+        <form action="/encryptDES/file" method="POST" class="my-4">
+            @csrf
+            <label for="file" class="block mb-2">File:</label>
+            <input type="file" id="file" name="file" class="w-full px-4 py-2 border rounded" multiple accept=".pdf, .docx, .xls">
+            <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Encrypt File</button>
+        </form>
+
+        <!-- File Decryption Form -->
+        <form action="/decryptDES/file" method="POST" class="my-4">
+            @csrf
+            <label for="encrypted_fileDES" class="block mb-2">Enter Encrypted File:</label>
+            <input type="text" id="encrypted_fileDES" name="encrypted_fileDES" class="w-full px-4 py-2 border rounded">
+            <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Decrypt File</button>
+        </form>
+
 
    </div>
 </div>
