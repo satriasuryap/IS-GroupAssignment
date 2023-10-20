@@ -90,6 +90,22 @@
            </div>
        @endif
 
+       {{-- Video Encryption --}}
+       @if (session('encryptedvideoDES'))
+           <div class="message-container bg-gray-100 border p-2 rounded my-2 text-ellipsis truncate">
+               <h3 class="font-semibold">Encrypted Message:</h3>
+               <p>{{ session('encryptedvideoDES') }}</p>
+           </div>
+       @endif
+
+       {{-- Video Decryption --}}
+       @if (session('decryptedvideoDES'))
+           <div class="message-container bg-gray-100 border p-2 rounded my-2">
+               <h3 class="font-semibold">Decrypted Message:</h3>
+               <p>{{ session('decryptedvideoDES') }}</p>
+           </div>
+       @endif
+
         <form action="/encryptDES/name" method="POST" class="my-4">
             @csrf
             <label for="name" class="block mb-2">Name:</label>
@@ -159,6 +175,22 @@
             @csrf
             <label for="encrypted_fileDES" class="block mb-2">Enter Encrypted File:</label>
             <input type="text" id="encrypted_fileDES" name="encrypted_fileDES" class="w-full px-4 py-2 border rounded">
+            <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Decrypt File</button>
+        </form>
+
+         <!-- Video Encryption Form -->
+         <form action="/encryptDES/video" method="POST" class="my-4">
+            @csrf
+            <label for="video" class="block mb-2">File:</label>
+            <input type="file" id="video" name="video" class="w-full px-4 py-2 border rounded" multiple accept=".mp4, .mov">
+            <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Encrypt File</button>
+        </form>
+
+        <!-- Video Decryption Form -->
+        <form action="/decryptDES/video" method="POST" class="my-4">
+            @csrf
+            <label for="encrypted_videoDES" class="block mb-2">Enter Encrypted File:</label>
+            <input type="text" id="encrypted_videoDES" name="encrypted_videoDES" class="w-full px-4 py-2 border rounded">
             <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded cursor-pointer">Decrypt File</button>
         </form>
 

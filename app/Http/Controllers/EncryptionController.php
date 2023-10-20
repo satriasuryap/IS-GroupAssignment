@@ -215,4 +215,28 @@ class EncryptionController extends Controller
         $decryptedFileDES = DesEncrypter::decrypt($encryptedFileDES, $key);
         return redirect('/encryptDES')->with('decryptedfileDES', $decryptedFileDES);
     }
+
+    public function encryptVideoDES(Request $request)
+    {
+        $file = $request->input('file');
+        $key = 'Halo1234'; // Replace with your actual key
+        $encryptedVideoDES = DesEncrypter::encrypt($file, $key);
+        return redirect('/encryptDES')->with('encryptedvideoDES', $encryptedVideoDES);
+    }
+
+    public function decryptVideoDES(Request $request)
+    {
+        $encryptedVideoDES = $request->input('encrypted_videoDES');
+        $key = 'Halo1234'; // Replace with your actual key
+
+        $videoData = DesEncrypter::decrypt($encryptedVideoDES, $key);
+
+        $fileName = 'decrypted_' . time() . '.mp4';
+
+        Storage::disk('public')->put($fileName, $videoData);
+
+        // $decryptedVideoDES = DesEncrypter::decrypt($encryptedVideoDES, $key);
+        return redirect('/encryptDES')->with('decryptedvideoDES', $fileName);
+    }
+
 }
