@@ -96,5 +96,13 @@ Route::get('/encryptRC4', function () {
 Route::post('/encryptRC4/name', [EncryptionController::class, 'encryptNameRC4']);
 Route::post('/decryptRC4/name', [EncryptionController::class, 'decryptNameRC4']);
 
+Route::post('/encryptRC4/email', [EncryptionController::class, 'encryptEmailRC4']);
+Route::post('/decryptRC4/email', [EncryptionController::class, 'decryptEmailRC4']);
+
+Route::post('/encryptRC4/phone', [EncryptionController::class, 'encryptPhoneRC4']);
+Route::post('/decryptRC4/phone', [EncryptionController::class, 'decryptPhoneRC4']);
+
+Route::post('/encryptRC4/image', [EncryptionController::class, 'encryptImageRC4']);
+Route::post('/decryptRC4/image', [EncryptionController::class, 'decryptImageRC4']);
 
 require __DIR__.'/auth.php';

@@ -260,4 +260,64 @@ class EncryptionController extends Controller
         return redirect('/encryptRC4')->with('decryptednameRC4', $decryptedNameRC4);
     }
 
+    public function encryptEmailRC4(Request $request)
+    {
+        $email = $request->input('email');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $encryptedEmailRC4 = RC4Encrypter::encrypt($email, $key);
+        
+        return redirect('/encryptRC4')->with('encryptedemailRC4', $encryptedEmailRC4);
+    }
+
+    public function decryptEmailRC4(Request $request)
+    {
+        $encryptedEmailRC4 = $request->input('encrypted_emailRC4');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $decryptedEmailRC4 = RC4Encrypter::decrypt($encryptedEmailRC4, $key);
+
+        return redirect('/encryptRC4')->with('decryptednameRC4', $decryptedEmailRC4);
+    }
+
+    public function encryptPhoneRC4(Request $request)
+    {
+        $phone = $request->input('phone');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $encryptedPhoneRC4 = RC4Encrypter::encrypt($phone, $key);
+        
+        return redirect('/encryptRC4')->with('encryptedphoneRC4', $encryptedPhoneRC4);
+    }
+
+    public function decryptPhoneRC4(Request $request)
+    {
+        $encryptedPhoneRC4 = $request->input('encrypted_phoneRC4');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $decryptedPhoneRC4 = RC4Encrypter::decrypt($encryptedPhoneRC4, $key);
+
+        return redirect('/encryptRC4')->with('decryptedphoneRC4', $decryptedPhoneRC4);
+    }
+
+    public function encryptImageRC4(Request $request)
+    {
+        $image = $request->input('image');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $encryptedImageRC4 = RC4Encrypter::encrypt($image, $key);
+        
+        return redirect('/encryptRC4')->with('encryptedimageRC4', $encryptedImageRC4);
+    }
+
+    public function decryptImageRC4(Request $request)
+    {
+        $encryptedImageRC4 = $request->input('encrypted_imageRC4');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $decryptedImageRC4 = RC4Encrypter::decrypt($encryptedImageRC4, $key);
+
+        return redirect('/encryptRC4')->with('decryptedphoneRC4', $decryptedImageRC4);
+    }
+
 }
