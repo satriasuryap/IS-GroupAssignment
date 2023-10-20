@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt; // AES
 use Illuminate\Support\Facades\Storage;
 use App\DesEncrypter;
+use App\RC4Encrypter;
 
 class EncryptionController extends Controller
 {
@@ -237,6 +238,26 @@ class EncryptionController extends Controller
 
         // $decryptedVideoDES = DesEncrypter::decrypt($encryptedVideoDES, $key);
         return redirect('/encryptDES')->with('decryptedvideoDES', $fileName);
+    }
+
+    public function encryptNameRC4(Request $request)
+    {
+        $name = $request->input('name');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $encryptedNameRC4 = RC4Encrypter::encrypt($name, $key);
+        
+        return redirect('/encryptRC4')->with('encryptednameRC4', $encryptedNameRC4);
+    }
+
+    public function decryptNameRC4(Request $request)
+    {
+        $encryptedNameRC4 = $request->input('encrypted_nameRC4');
+        $key = 'inirc4ya'; // Replace with your actual key
+
+        $decryptedNameRC4 = RC4Encrypter::decrypt($encryptedNameRC4, $key);
+
+        return redirect('/encryptRC4')->with('decryptednameRC4', $decryptedNameRC4);
     }
 
 }
