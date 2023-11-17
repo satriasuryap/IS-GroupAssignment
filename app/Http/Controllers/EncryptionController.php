@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt; // AES
 use Illuminate\Support\Facades\Storage;
+use App\Models\AES;
 use App\DesEncrypter;
 use App\RC4Encrypter;
 
@@ -14,6 +15,7 @@ class EncryptionController extends Controller
     {
         $name = $request->input('name');
         $encryptedName = Crypt::encrypt($name);
+        AES::create(['name' => $encryptedName]);
         return redirect('/encrypt')->with('encryptedname', $encryptedName);
     }
 
@@ -28,6 +30,7 @@ class EncryptionController extends Controller
     {
         $email = $request->input('email');
         $encryptedEmail = Crypt::encrypt($email);
+        AES::create(['email' => $encryptedEmail]);
         return redirect('/encrypt')->with('encryptedemail', $encryptedEmail);
     }
 
@@ -42,6 +45,7 @@ class EncryptionController extends Controller
     {
         $phone = $request->input('phone');
         $encryptedPhone = Crypt::encrypt($phone);
+        AES::create(['phone' => $encryptedPhone]);
         return redirect('/encrypt')->with('encryptedphone', $encryptedPhone);
     }
 
@@ -55,6 +59,7 @@ class EncryptionController extends Controller
     public function encryptImg(Request $request)
     {
         $img = $request->input('img');
+        AES::create(['img' => $img]);
         $encryptedImg = Crypt::encrypt($img);
         return redirect('/encrypt')->with('encryptedimg', $encryptedImg);
     }
@@ -79,6 +84,7 @@ class EncryptionController extends Controller
     public function encryptFile(Request $request)
     {
         $file = $request->input('file');
+        AES::create(['file' => $file]);
         $encryptedFile = Crypt::encrypt($file);
         return redirect('/encrypt')->with('encryptedfile', $encryptedFile);
     }
@@ -93,6 +99,7 @@ class EncryptionController extends Controller
     public function encryptVideo(Request $request)
     {
         $video = $request->input('video');
+        AES::create(['video' => $video]);
         $encryptedVideo = Crypt::encrypt($video);
         return redirect('/encrypt')->with('encryptedvideo', $encryptedVideo);
     }

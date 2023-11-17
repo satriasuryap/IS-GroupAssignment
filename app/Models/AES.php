@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Encrypt extends Model
+class AES extends Model
 {
     use HasFactory, HasApiTokens, Notifiable;
 
@@ -17,7 +17,8 @@ class Encrypt extends Model
      * @var array<int, string>
      */
 
-     public $timestamps = false;
+    protected $table = 'aes';
+    public $timestamps = false;
     protected $fillable = [
         'name',
         'email',
