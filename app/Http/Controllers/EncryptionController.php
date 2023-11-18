@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt; // AES
 use Illuminate\Support\Facades\Storage;
 use App\Models\AES;
+use App\Models\DES;
+use App\Models\RC4;
 use App\DesEncrypter;
 use App\RC4Encrypter;
 
@@ -127,7 +129,7 @@ class EncryptionController extends Controller
         $key = 'Halo1234'; // Replace with your actual key
 
         $encryptedNameDES = DesEncrypter::encrypt($name, $key);
-        
+        DES::create(['name' => $encryptedNameDES]);
         return redirect('/encryptDES')->with('encryptednameDES', $encryptedNameDES);
     }
 
@@ -146,7 +148,7 @@ class EncryptionController extends Controller
         $key = 'Halo1234'; // Replace with your actual key
 
         $encryptedEmailDES = DesEncrypter::encrypt($email, $key);
-        
+        DES::create(['email' => $encryptedEmailDES]);
         return redirect('/encryptDES')->with('encryptedemailDES', $encryptedEmailDES);
     }
 
@@ -165,7 +167,7 @@ class EncryptionController extends Controller
         $key = 'Halo1234'; // Replace with your actual key
 
         $encryptedPhoneDES = DesEncrypter::encrypt($phone, $key);
-        
+        DES::create(['phone' => $encryptedPhoneDES]);
         return redirect('/encryptDES')->with('encryptedphoneDES', $encryptedPhoneDES);
     }
 
@@ -182,6 +184,7 @@ class EncryptionController extends Controller
     public function encryptImgDES(Request $request)
     {
         $img = $request->file('img');
+        DES::create(['img' => $img]);
         $key = 'Halo1234'; // Replace with your actual key
         // $imgData = file_get_contents($img);
         // Encrypt the image data using DES encryption
@@ -210,6 +213,7 @@ class EncryptionController extends Controller
     public function encryptFileDES(Request $request)
     {
         $file = $request->input('file');
+        DES::create(['file' => $file]);
         $key = 'Halo1234'; // Replace with your actual key
         $encryptedFileDES = DesEncrypter::encrypt($file, $key);
         return redirect('/encryptDES')->with('encryptedfileDES', $encryptedFileDES);
@@ -226,9 +230,10 @@ class EncryptionController extends Controller
 
     public function encryptVideoDES(Request $request)
     {
-        $file = $request->input('file');
+        $video = $request->input('video');
+        DES::create(['video' => $video]);
         $key = 'Halo1234'; // Replace with your actual key
-        $encryptedVideoDES = DesEncrypter::encrypt($file, $key);
+        $encryptedVideoDES = DesEncrypter::encrypt($video, $key);
         return redirect('/encryptDES')->with('encryptedvideoDES', $encryptedVideoDES);
     }
 
@@ -253,7 +258,7 @@ class EncryptionController extends Controller
         $key = 'inirc4ya'; // Replace with your actual key
 
         $encryptedNameRC4 = RC4Encrypter::encrypt($name, $key);
-        
+        RC4::create(['name' => $encryptedNameRC4]);
         return redirect('/encryptRC4')->with('encryptednameRC4', $encryptedNameRC4);
     }
 
@@ -273,7 +278,7 @@ class EncryptionController extends Controller
         $key = 'inirc4ya'; // Replace with your actual key
 
         $encryptedEmailRC4 = RC4Encrypter::encrypt($email, $key);
-        
+        RC4::create(['email' => $encryptedEmailRC4]);
         return redirect('/encryptRC4')->with('encryptedemailRC4', $encryptedEmailRC4);
     }
 
@@ -293,7 +298,7 @@ class EncryptionController extends Controller
         $key = 'inirc4ya'; // Replace with your actual key
 
         $encryptedPhoneRC4 = RC4Encrypter::encrypt($phone, $key);
-        
+        RC4::create(['phone' => $encryptedPhoneRC4]);
         return redirect('/encryptRC4')->with('encryptedphoneRC4', $encryptedPhoneRC4);
     }
 
@@ -310,6 +315,7 @@ class EncryptionController extends Controller
     public function encryptImageRC4(Request $request)
     {
         $image = $request->input('image');
+        RC4::create(['image' => $image]);
         $key = 'inirc4ya'; // Replace with your actual key
 
         $encryptedImageRC4 = RC4Encrypter::encrypt($image, $key);

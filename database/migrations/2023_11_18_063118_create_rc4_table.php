@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('aes', function (Blueprint $table) {
+        Schema::create('rc4', function (Blueprint $table) {
             $table->id();
             $table->text('name')->nullable();
             $table->text('email')->nullable();
             $table->text('phone')->nullable();
-            $table->text('img')->nullable();
+            $table->text('image')->nullable();
             $table->text('file')->nullable();
             $table->text('video')->nullable();
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aes');
+        Schema::dropIfExists('rc4');
     }
 };
