@@ -13,4 +13,12 @@ class RequestController extends Controller
         // Assuming $data contains 'email', 'name', 'file', 'image', and 'video'
         EmailJobs::dispatch($data['email'], $data['name'], $data['file'], $data['image'], $data['video']);
     }
+
+    public function index()
+    {
+        $items = Encrypt::all();
+        return view('items', [
+            'items' => $items
+        ]);
+    }
 }
