@@ -39,15 +39,15 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/upload', function(){
     return view('upload');
-});
+})->middleware(['auth']);
 
 Route::get('/encrypted', function(){
     return view('encrypted');
-});
+})->middleware(['auth']);
 
 Route::get('/encrypt', function () {
     return view('encrypt');
-});
+})->middleware(['auth']);
 
 Route::post('/encrypt/name', [EncryptionController::class, 'encryptName']);
 Route::post('/decrypt/name', [EncryptionController::class, 'decryptName']);
@@ -69,7 +69,7 @@ Route::post('/decrypt/video', [EncryptionController::class, 'decryptVideo']);
 
 Route::get('/encryptDES', function () {
     return view('encryptDES');
-});
+})->middleware(['auth']);
 
 Route::post('/encryptDES/name', [EncryptionController::class, 'encryptNameDES']);
 Route::post('/decryptDES/name', [EncryptionController::class, 'decryptNameDES']);
@@ -91,7 +91,7 @@ Route::post('/decryptDES/video', [EncryptionController::class, 'decryptVideoDES'
 
 Route::get('/encryptRC4', function () {
     return view('encryptRC4');
-});
+})->middleware(['auth']);
 
 Route::post('/encryptRC4/name', [EncryptionController::class, 'encryptNameRC4']);
 Route::post('/decryptRC4/name', [EncryptionController::class, 'decryptNameRC4']);
