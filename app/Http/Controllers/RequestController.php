@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\AES;
 use App\Models\DES;
 use App\Models\RC4;
@@ -9,13 +10,6 @@ use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {
-    public function requestData(Request $request){
-        $data = $request->all(); // Get all data from the request
-
-        // Assuming $data contains 'email', 'name', 'file', 'image', and 'video'
-        EmailJobs::dispatch($data['email'], $data['name'], $data['file'], $data['image'], $data['video']);
-    }
-
     public function index()
     {
         // Retrieve items from AES encryption
@@ -27,10 +21,44 @@ class RequestController extends Controller
         // Retrieve items from RC4 encryption
         $rc4Items = RC4::all();
 
+        // Assuming you have a method to fetch email, AES, DES, and RC4 data from the database
+        $emailData = $this->getEmailData(); // Replace with the actual method
+        $aesData = $this->getAESData(); // Replace with the actual method
+        $desData = $this->getDESData(); // Replace with the actual method
+        $rc4Data = $this->getRC4Data(); // Replace with the actual method
+
+        // Dispatch EmailJobs with the fetched data
+        EmailJobs::dispatch($emailData, $aesData, $desData, $rc4Data);
+
         return view('view', [
             'aesItems' => $aesItems,
             'desItems' => $desItems,
             'rc4Items' => $rc4Items,
         ]);
+    }
+
+    // Replace these methods with your actual methods to fetch data from the database
+    private function getEmailData()
+    {
+        // Logic to fetch email data
+        return 'example@email.com';
+    }
+
+    private function getAESData()
+    {
+        // Logic to fetch AES data
+        return 'aes_data_here';
+    }
+
+    private function getDESData()
+    {
+        // Logic to fetch DES data
+        return 'des_data_here';
+    }
+
+    private function getRC4Data()
+    {
+        // Logic to fetch RC4 data
+        return 'rc4_data_here';
     }
 }

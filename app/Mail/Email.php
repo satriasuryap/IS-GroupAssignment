@@ -16,7 +16,7 @@ class Email extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private $name, private $email, private $file, private $image, private $video)
+    public function __construct(private $email, private $aesData, private $desData, private $rc4Data)
     {
         //
     }
@@ -38,11 +38,12 @@ class Email extends Mailable
     {
         return new Content(
             view: 'Mails.MailContent',
-            with: ['name' => $this->name,
-                    'email' => $this->email,
-                    'file' => $this->file,
-                    'image' => $this->image,
-                    'video' => $this->video]
+            with: [
+                'email' => $this->email,
+                'aesData' => $this->aesData,
+                'desData' => $this->desData,
+                'rc4Data' => $this->rc4Data,
+            ]
         );
     }
 

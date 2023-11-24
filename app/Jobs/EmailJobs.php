@@ -20,21 +20,24 @@ class EmailJobs implements ShouldQueue
      */
 
      private $email;
-     private $name;
-     private $file;
-     private $image;
-     private $video;
-    public function __construct($email,$name,$file,$image,$video)
+    // Parameters for AES, DES, and RC4 data
+    protected $aesData;
+    protected $desData;
+    protected $rc4Data;
+
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct($email,$aesData, $desData, $rc4Data)
     {
-        //
-
+        // Set parameters for AES, DES, and RC4 data
+        $this->aesData = $aesData;
         $this->email = $email;
-        $this->name = $name;
-        $this->file = $file;
-        $this->image = $image;
-        $this->video = $video;
+        $this->desData = $desData;
+        $this->rc4Data = $rc4Data;
     }
-
     /**
      * Execute the job.
      */
@@ -42,6 +45,6 @@ class EmailJobs implements ShouldQueue
     {
         //
 
-        Mail::to($this->email)->send(new Email($this->name, $this->email,$this->file,$this->image,$this->video));
+        Mail::to($this->email)->send(new Email($this->email,$this->aesData, $this->desData,$this->rc4Data));
     }
 }
