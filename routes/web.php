@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\EncryptionController;
+use App\Http\Controllers\PrivateKeyController;
 
 
 /*
@@ -51,6 +52,9 @@ Route::get('/encrypt', function () {
 })->middleware(['auth']);
 
 Route::get('/view', [RequestController::class, 'index'])->middleware('auth');
+Route::get('/privatekey', [PrivateKeyController::class, 'show'])->middleware(['auth']);
+
+
 
 Route::post('/encrypt/name', [EncryptionController::class, 'encryptName']);
 Route::post('/decrypt/name', [EncryptionController::class, 'decryptName']);
