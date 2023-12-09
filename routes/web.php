@@ -51,11 +51,6 @@ Route::get('/encrypt', function () {
     return view('encrypt');
 })->middleware(['auth']);
 
-Route::get('/view', [RequestController::class, 'index'])->middleware('auth');
-Route::get('/privatekey', [PrivateKeyController::class, 'showPrivateKey']);
-
-
-
 Route::post('/encrypt/name', [EncryptionController::class, 'encryptName']);
 Route::post('/decrypt/name', [EncryptionController::class, 'decryptName']);
 
@@ -111,5 +106,10 @@ Route::post('/decryptRC4/phone', [EncryptionController::class, 'decryptPhoneRC4'
 
 Route::post('/encryptRC4/image', [EncryptionController::class, 'encryptImageRC4']);
 Route::post('/decryptRC4/image', [EncryptionController::class, 'decryptImageRC4']);
+
+Route::get('/privatekey', [PrivateKeyController::class, 'showPrivateKey'])->middleware('auth');
+Route::match(['get', 'post'], '/inputPrivateKey', [RequestController::class, 'inputPrivateKey'])->middleware('auth')->name('inputPrivateKey');
+Route::post('/verifyPrivateKey', [RequestController::class, 'verifyPrivateKey'])->middleware('auth');
+Route::get('/view', [RequestController::class, 'index'])->middleware('auth')->name('view');
 
 require __DIR__.'/auth.php';

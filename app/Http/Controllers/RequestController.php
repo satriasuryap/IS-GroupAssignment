@@ -7,9 +7,34 @@ use App\Models\DES;
 use App\Models\RC4;
 use App\Jobs\EmailJobs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
 {
+    public function inputPrivateKey()
+    {
+        return view('inputPrivateKey');
+    }
+    
+    public function verifyPrivateKey(Request $request)
+    {
+        $enteredPrivateKey = trim($request->input('private_key'));
+        $enteredPrivateKey = str_replace(["\r", "\n"], '', $enteredPrivateKey);
+        // dd('Entered Private Key:', $enteredPrivateKey);
+
+        $user = Auth::user();
+        $storedPrivateKey = trim($user->private_key);
+        $storedPrivateKey = str_replace(["\r", "\n"], '', $storedPrivateKey);
+        // dd('Stored Private Key:', $storedPrivateKey);
+
+        // Check if the entered private key matches the stored private key
+        if ($enteredPrivateKey === $storedPrivateKey) {
+            return redirect()->route('view');
+        } else {
+            return redirect()->route('inputPrivateKey')->with('error', 'Invalid private key entered.');
+        }
+    }
+
     public function index()
     {
         // Retrieve items from AES encryption
@@ -61,4 +86,5 @@ class RequestController extends Controller
         // Logic to fetch RC4 data
         return 'rc4_data_here';
     }
+
 }
