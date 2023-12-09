@@ -52,7 +52,7 @@ Route::get('/encrypt', function () {
 })->middleware(['auth']);
 
 Route::get('/view', [RequestController::class, 'index'])->middleware('auth');
-Route::get('/privatekey', [PrivateKeyController::class, 'show'])->middleware(['auth']);
+Route::get('/privatekey', [PrivateKeyController::class, 'showPrivateKey']);
 
 
 

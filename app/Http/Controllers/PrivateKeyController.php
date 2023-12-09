@@ -2,15 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PrivateKeyController extends Controller
 {
-    public function show()
+    public function showPrivateKey()
     {
-        $privateKey = auth()->user()->private_key;
+        // Generate or fetch the private key
+        $privateKey = $this->generatePrivateKey();
 
-        return view('/privatekey');
+        // Pass the private key to the view
+        return view('privatekey', ['privateKey' => $privateKey]);
+    }
+
+    private function generatePrivateKey()
+    {
+        $config = [
+            "private_key_bits" => 2048,
+            "private_key_type" => OPENSSL_KEYTYPE_RSA,
+        ];
+
+        // Generate a new private key
+        $privateKey = openssl_pkey_new($config);
+
+        // Get the private key as a PEM string
+        openssl_pkey_export($privateKey, $privateKeyPEM);
+
+        return $privateKeyPEM;
     }
 }
