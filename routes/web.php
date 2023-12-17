@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\EncryptionController;
 use App\Http\Controllers\PrivateKeyController;
+use App\Http\Controllers\PdfController;
 
 
 /*
@@ -111,5 +112,9 @@ Route::get('/privatekey', [PrivateKeyController::class, 'showPrivateKey'])->midd
 Route::match(['get', 'post'], '/inputPrivateKey', [RequestController::class, 'inputPrivateKey'])->middleware('auth')->name('inputPrivateKey');
 Route::post('/verifyPrivateKey', [RequestController::class, 'verifyPrivateKey'])->middleware('auth');
 Route::get('/view', [RequestController::class, 'index'])->middleware('auth')->name('view');
+
+Route::get('/uploadpdf', [PdfController::class, 'uploadForm'])->name('upload');
+Route::post('/store', [PdfController::class, 'store'])->name('pdf.store');
+Route::get('/download/{pdfId}', [PdfController::class, 'download'])->name('pdf.download');
 
 require __DIR__.'/auth.php';
