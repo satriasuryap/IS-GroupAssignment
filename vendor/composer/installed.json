@@ -445,6 +445,65 @@
             "install-path": "../egulias/email-validator"
         },
         {
+            "name": "elibyy/tcpdf-laravel",
+            "version": "10.0.2",
+            "version_normalized": "10.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elibyy/tcpdf-laravel.git",
+                "reference": "edc3318607370b9367748565446c0bb53c17da6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/edc3318607370b9367748565446c0bb53c17da6f",
+                "reference": "edc3318607370b9367748565446c0bb53c17da6f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "tecnickcom/tcpdf": "6.2.*|6.3.*|6.4.*|6.5.*|6.6.*|dev-main"
+            },
+            "time": "2023-11-20T08:37:17+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Elibyy\\TCPDF\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "PDF": "Elibyy\\TCPDF\\Facades\\TCPDF"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Elibyy\\TCPDF\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "eli y",
+                    "email": "elibyy@gmail.com"
+                }
+            ],
+            "description": "tcpdf support for Laravel 6, 7, 8, 9",
+            "keywords": [
+                "TCPDF",
+                "laravel",
+                "pdf"
+            ],
+            "support": {
+                "issues": "https://github.com/elibyy/tcpdf-laravel/issues",
+                "source": "https://github.com/elibyy/tcpdf-laravel/tree/10.0.2"
+            },
+            "install-path": "../elibyy/tcpdf-laravel"
+        },
+        {
             "name": "fakerphp/faker",
             "version": "v1.23.0",
             "version_normalized": "1.23.0.0",

@@ -117,4 +117,6 @@ Route::get('/uploadpdf', [PdfController::class, 'uploadForm'])->name('upload');
 Route::post('/store', [PdfController::class, 'store'])->name('pdf.store');
 Route::get('/download/{pdfId}', [PdfController::class, 'download'])->name('pdf.download');
 
+Route::get('/tcpdf',[\App\Http\Controllers\TCPDFController::class,'downloadPdf']);
+
 require __DIR__.'/auth.php';

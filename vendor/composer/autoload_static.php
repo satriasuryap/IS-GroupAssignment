@@ -161,6 +161,7 @@ class ComposerStaticInitc01fc18c8c804b02f292a884f82444c1
         ),
         'E' => 
         array (
+            'Elibyy\\TCPDF\\' => 13,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -504,6 +505,10 @@ class ComposerStaticInitc01fc18c8c804b02f292a884f82444c1
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
         ),
+        'Elibyy\\TCPDF\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/elibyy/tcpdf-laravel/src',
+        ),
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
@@ -573,6 +578,7 @@ class ComposerStaticInitc01fc18c8c804b02f292a884f82444c1
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EncryptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/EncryptionController.php',
+        'App\\Http\\Controllers\\PdfController' => __DIR__ . '/../..' . '/app/Http/Controllers/PdfController.php',
         'App\\Http\\Controllers\\PrivateKeyController' => __DIR__ . '/../..' . '/app/Http/Controllers/PrivateKeyController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\RequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/RequestController.php',
@@ -595,6 +601,7 @@ class ComposerStaticInitc01fc18c8c804b02f292a884f82444c1
         'App\\Models\\AES' => __DIR__ . '/../..' . '/app/Models/AES.php',
         'App\\Models\\DES' => __DIR__ . '/../..' . '/app/Models/DES.php',
         'App\\Models\\Encrypt' => __DIR__ . '/../..' . '/app/Models/Encrypt.php',
+        'App\\Models\\PDF' => __DIR__ . '/../..' . '/app/Models/PDF.php',
         'App\\Models\\RC4' => __DIR__ . '/../..' . '/app/Models/RC4.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -929,6 +936,11 @@ class ComposerStaticInitc01fc18c8c804b02f292a884f82444c1
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/Warning.php',
+        'Elibyy\\TCPDF\\Facades\\TCPDF' => __DIR__ . '/..' . '/elibyy/tcpdf-laravel/src/Facades/TCPDF.php',
+        'Elibyy\\TCPDF\\FpdiTCPDFHelper' => __DIR__ . '/..' . '/elibyy/tcpdf-laravel/src/FpdiTCPDFHelper.php',
+        'Elibyy\\TCPDF\\ServiceProvider' => __DIR__ . '/..' . '/elibyy/tcpdf-laravel/src/ServiceProvider.php',
+        'Elibyy\\TCPDF\\TCPDF' => __DIR__ . '/..' . '/elibyy/tcpdf-laravel/src/TCPDF.php',
+        'Elibyy\\TCPDF\\TCPDFHelper' => __DIR__ . '/..' . '/elibyy/tcpdf-laravel/src/TCPDFHelper.php',
         'Faker\\Calculator\\Ean' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Ean.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Inn.php',
